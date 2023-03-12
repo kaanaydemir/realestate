@@ -3,9 +3,10 @@ package com.people.realestate.controller;
 import com.people.realestate.dtos.LocationPointDto;
 import com.people.realestate.dtos.restdtos.createlocationpoint.CreateLocationPointRequest;
 import com.people.realestate.dtos.restdtos.createlocationpoint.CreateLocationPointResponse;
+import com.people.realestate.dtos.restdtos.getlocationpoints.GetLocationPointsResponse;
 import com.people.realestate.mapper.LocationPointMapper;
 import com.people.realestate.model.LocationPoint;
-import com.people.realestate.services.LocationPointService;
+import com.people.realestate.services.location.LocationPointService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,4 +35,10 @@ public class LocationPointController {
 
         return ResponseEntity.ok(locationPointMapper.convert(locationPoint));
     }
+
+    @GetMapping("/get/list")
+    public ResponseEntity<GetLocationPointsResponse> getLocationPointList() {
+        return ResponseEntity.ok(locationPointService.getAllLocationPoints());
+    }
+
 }

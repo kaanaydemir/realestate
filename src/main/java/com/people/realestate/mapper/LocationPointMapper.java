@@ -5,6 +5,8 @@ import com.people.realestate.enums.LocationType;
 import com.people.realestate.model.LocationPoint;
 import org.mapstruct.*;
 
+import java.util.List;
+
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE,
         componentModel = "spring")
 public interface LocationPointMapper {
@@ -21,6 +23,8 @@ public interface LocationPointMapper {
                      expression = "java(enumToInteger(locationPoint.getLocationType()))")
     })
     LocationPointDto convert(LocationPoint locationPoint);
+
+    List<LocationPointDto> convert(List<LocationPoint> locationPoints);
 
     default LocationType integerToEnum(Integer locationType) {
         return LocationType.fromValue(locationType);

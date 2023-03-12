@@ -1,9 +1,10 @@
 package com.people.realestate.advice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ErrorMessage {
-    private List<String> errors;
+    private List<String> errors = new ArrayList<>();
 
     public ErrorMessage(List<String> errors) {
         this.errors = errors;
