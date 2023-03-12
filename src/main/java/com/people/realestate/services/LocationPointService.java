@@ -19,7 +19,6 @@ public class LocationPointService {
         this.locationPointRepository = locationPointRepository;
     }
 
-    @LogExecutionTime
     public CreateLocationPointResponse saveLocationPoint(CreateLocationPointRequest request) {
 
         LocationPoint locationPoint = LocationPoint.builder()
