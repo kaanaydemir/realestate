@@ -4,6 +4,8 @@ import jakarta.annotation.PostConstruct;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -17,9 +19,11 @@ public abstract class Base {
     @Column(name = "id")
     protected Long id;
 
+    @CreationTimestamp
     @Column(name = "createdDate")
     protected LocalDateTime createdDate;
 
+    @UpdateTimestamp
     @Column(name = "modifiedDate")
     protected LocalDateTime modifiedDate;
 
