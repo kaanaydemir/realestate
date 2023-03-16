@@ -1,4 +1,4 @@
-package com.people.realestate.dtos.restdtos.getlocationpoints;
+package com.people.realestate.dtos.restdtos.location.getlocationpoints;
 
 import com.people.realestate.dtos.LocationPointDto;
 import com.people.realestate.dtos.base.BaseRequest;

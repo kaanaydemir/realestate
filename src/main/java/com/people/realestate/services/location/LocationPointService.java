@@ -2,13 +2,12 @@ package com.people.realestate.services.location;
 
 import com.people.realestate.dtos.LocationPointDto;
 import com.people.realestate.dtos.base.ResponseHeader;
-import com.people.realestate.dtos.restdtos.createlocationpoint.CreateLocationPointRequest;
-import com.people.realestate.dtos.restdtos.createlocationpoint.CreateLocationPointResponse;
-import com.people.realestate.dtos.restdtos.getlocationpoints.GetLocationPointsResponse;
+import com.people.realestate.dtos.restdtos.location.createlocationpoint.CreateLocationPointRequest;
+import com.people.realestate.dtos.restdtos.location.createlocationpoint.CreateLocationPointResponse;
+import com.people.realestate.dtos.restdtos.location.getlocationpoints.GetLocationPointsResponse;
 import com.people.realestate.enums.LocationType;
 import com.people.realestate.mapper.LocationPointMapper;
 import com.people.realestate.model.LocationPoint;
-import com.people.realestate.repository.LocationPointRepository;
 import com.people.realestate.services.location.impl.LocationServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +15,11 @@ import java.util.List;
 
 @Service
 public class LocationPointService {
-    private final LocationPointRepository locationPointRepository;
 
     private final LocationServiceImpl locationService;
     private final LocationPointMapper locationPointMapper;
 
-    public LocationPointService(LocationPointRepository locationPointRepository, LocationServiceImpl locationService,
-                                LocationPointMapper locationPointMapper) {
-        this.locationPointRepository = locationPointRepository;
+    public LocationPointService(LocationServiceImpl locationService, LocationPointMapper locationPointMapper) {
         this.locationService = locationService;
         this.locationPointMapper = locationPointMapper;
     }
@@ -44,8 +40,7 @@ public class LocationPointService {
                 .createdBy(request.getHeader().getUsername())
                 .build();
 
-        LocationPoint save = locationPointRepository.save(locationPoint);
-
+        LocationPoint save = locationService.create(locationPoint);
 
         return CreateLocationPointResponse.builder()
                 .header(new ResponseHeader())
@@ -102,6 +97,6 @@ public class LocationPointService {
      * @param id The id of the location point
      */
     public void deleteLocationPoint(Long id) {
-        locationPointRepository.deleteById(id);
+        locationService.delete(id);
     }
 }

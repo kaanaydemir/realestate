@@ -1,8 +1,9 @@
-package com.people.realestate.dtos.restdtos.createlocationpoint;
+package com.people.realestate.dtos.restdtos.location.createlocationpoint;
 
 import com.people.realestate.dtos.base.BaseRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 @Data
@@ -10,6 +11,8 @@ import lombok.Data;
 
     @NotBlank(message = "Name is required")
     private final String name;
+
+    @PositiveOrZero
     private final Long upperId;
 
     @NotNull(message = "Location type is required")

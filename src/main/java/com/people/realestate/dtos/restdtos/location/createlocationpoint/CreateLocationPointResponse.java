@@ -1,4 +1,4 @@
-package com.people.realestate.dtos.restdtos.createlocationpoint;
+package com.people.realestate.dtos.restdtos.location.createlocationpoint;
 
 import com.people.realestate.dtos.base.BaseResponse;
 import lombok.*;
