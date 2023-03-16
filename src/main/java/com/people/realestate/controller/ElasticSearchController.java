@@ -18,11 +18,5 @@ public class ElasticSearchController {
         this.myEntityRepository = myEntityRepository;
     }
 
-    @GetMapping("/handle")
-    public void handleElasticSearch() {
-        ElasticSearchRequest entity = new ElasticSearchRequest();
-        entity.setId(UUID.randomUUID().toString());
-        entity.setName("John Doe");
-        myEntityRepository.save(entity);
-    }
+
 }
