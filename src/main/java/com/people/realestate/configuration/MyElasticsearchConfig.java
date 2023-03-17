@@ -19,10 +19,5 @@ public class MyElasticsearchConfig {
                 RestClient.builder(new HttpHost("localhost", 9200, "http"))
         );
     }
-
-    /*@Bean
-    public ElasticsearchOperations elasticsearchOperations() {
-        return new ElasticsearchRestTemplate(elasticsearchClient());
-    }*/
 }
 
